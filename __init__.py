@@ -1,0 +1,11 @@
+print('\033[94m' + "PawSearch library for search algorithms.\n"
+      "This library is implemented to demonstrate different search algorithms used in artificial intelligence based\n"
+      "systems. A set of informed and uninformed searching algorithms are implemented in this library. Please read\n"
+      "the README file for more information.\n"
+      "This software is distributed under MIT free-software license.\n"
+      "\n"
+      "Author: Pawan Samaratunga\n"
+      "Date  : 31/12/2020\n"
+      "\n"
+      "Copyright (c) 2020 Pawan Samaratunga\n"
+      "" + '\033[0m')
