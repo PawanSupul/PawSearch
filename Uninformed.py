@@ -165,10 +165,10 @@ class DepthFirstSearch(object):
         open_s.push(self.start)
         self.nodes[self.start].setDiscover(1)
         while not open_s.is_empty():
-            print(open_s.result())
+            # print(open_s.result())
             v = open_s.pull()
             close_s.push(v)
-            print(close_s.result())
+            # print(close_s.result())
             if (v == self.goal):
                 self.closedlist = close_s
                 self.openlist = open_s
@@ -275,15 +275,15 @@ class DepthLimitedSearch(object):
         self.nodes[self.start].setDiscover(1)
         while not open_s.is_empty():
             v = open_s.pull()
-            if (self.nodes[v].getDepth() <= self.depth):
-                close_s.push(v)
-                if (v == self.goal):
-                    self.closedlist = close_s
-                    self.openlist = open_s
-                    self.path = DepthLimitedSearch.__calculatePath(self)
-                    return 1
+            close_s.push(v)
+            if (v == self.goal):
+                self.closedlist = close_s
+                self.openlist = open_s
+                self.path = DepthLimitedSearch.__calculatePath(self)
+                return 1
+            if (self.nodes[v].getDepth() < self.depth):
                 for n in self.nodes[v].getChild():
-                    if self.nodes[n].getDiscover() == 0:
+                    if self.nodes[n].getDiscover() == 0 or self.nodes[v].getDepth()+1 < self.nodes[n].getDepth():
                         self.nodes[n].setDiscover()
                         open_s.push(n)
                         self.nodes[n].setDepth(self.nodes[v].getDepth()+1)
